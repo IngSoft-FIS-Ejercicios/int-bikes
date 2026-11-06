@@ -1,0 +1,39 @@
+[
+  {
+    "customer": "Marta Gómez",
+    "bikeCode": "B-101",
+    "bikeType": "urban",
+    "hours": 2,
+    "pricePerHour": 150
+  },
+  {
+    "customer": "Pablo Cabrera",
+    "bikeCode": "B-205",
+    "bikeType": "mountain",
+    "hours": 4,
+    "pricePerHour": 200,
+    "lateHours": 1
+  },
+  {
+    "customer": "Sofía Méndez",
+    "bikeCode": "B-310",
+    "bikeType": "electric",
+    "hours": 3,
+    "pricePerHour": 300,
+    "lateHours": 2
+  },
+  {
+    "customer": "Tomás Ferreira",
+    "bikeCode": "B-112",
+    "bikeType": "urban",
+    "hours": 1,
+    "pricePerHour": 150
+  },
+  {
+    "customer": "Valentina Rey",
+    "bikeCode": "B-220",
+    "bikeType": "mountain",
+    "hours": 6,
+    "pricePerHour": 200
+  }
+]

@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Alquiler de bicicletas</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bitter:wght@600&display=swap"
+      rel="stylesheet"
+    />
+    <link href="src/interface/style.css" rel="stylesheet" />
+  </head>
+  <body>
+    <header class="app-header">
+      <div class="container">
+        <h1>Alquiler de bicicletas</h1>
+        <ul class="nav nav-tabs" role="tablist">
+          <li class="nav-item" role="presentation">
+            <button
+              class="nav-link active"
+              id="btn-tab-home"
+              data-bs-toggle="tab"
+              data-bs-target="#home-container"
+              type="button"
+              role="tab"
+            >
+              Inicio
+            </button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button
+              class="nav-link"
+              id="btn-tab-new"
+              data-bs-toggle="tab"
+              data-bs-target="#new-container"
+              type="button"
+              role="tab"
+            >
+              Nuevo alquiler
+            </button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button
+              class="nav-link"
+              id="btn-tab-rentals"
+              data-bs-toggle="tab"
+              data-bs-target="#rentals-container"
+              type="button"
+              role="tab"
+            >
+              Alquileres
+              <span class="badge rounded-pill" id="rentals-count">0</span>
+            </button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button
+              class="nav-link"
+              id="btn-tab-by-type"
+              data-bs-toggle="tab"
+              data-bs-target="#by-type-container"
+              type="button"
+              role="tab"
+            >
+              Por tipo
+            </button>
+          </li>
+        </ul>
+      </div>
+    </header>
+
+    <main class="container">
+      <div class="tab-content">
+        <section
+          class="tab-pane fade show active"
+          id="home-container"
+          role="tabpanel"
+        >
+          <div class="stats">
+            <div class="stat">
+              <label class="form-label" for="inp-total-rentals"
+                >Cantidad de alquileres</label
+              >
+              <input
+                class="form-control-plaintext"
+                id="inp-total-rentals"
+                type="text"
+                value="0"
+                readonly
+              />
+            </div>
+            <div class="stat">
+              <label class="form-label" for="inp-total-income">Ingresos</label>
+              <button
+                class="hint"
+                type="button"
+                data-bs-toggle="tooltip"
+                title="Horas por precio por hora, sumado entre todos los alquileres."
+              >
+                ?
+              </button>
+              <input
+                class="form-control-plaintext"
+                id="inp-total-income"
+                type="text"
+                value="0"
+                readonly
+              />
+            </div>
+          </div>
+        </section>
+
+        <section class="tab-pane fade" id="rentals-container" role="tabpanel">
+          <p class="py-5 text-center text-secondary" id="rentals-empty-msg">
+            No hay alquileres
+          </p>
+          <div class="row row-cols-1 row-cols-md-2 g-3" id="rentals-list"></div>
+        </section>
+
+        <section class="tab-pane fade" id="by-type-container" role="tabpanel">
+          <div class="mb-3">
+            <label class="form-label" for="sel-filter-type">Tipo</label>
+            <select class="form-select" id="sel-filter-type">
+              <option value="urban">Urbana</option>
+              <option value="mountain">Montaña</option>
+              <option value="electric">Eléctrica</option>
+            </select>
+          </div>
+          <p class="py-5 text-center text-secondary" id="by-type-empty-msg">
+            No hay alquileres de este tipo
+          </p>
+          <div class="row row-cols-1 row-cols-md-2 g-3" id="by-type-list"></div>
+        </section>
+
+        <section class="tab-pane fade" id="new-container" role="tabpanel">
+          <div class="row g-3">
+            <div class="col-12">
+              <label class="form-label" for="inp-customer">Cliente</label>
+              <input class="form-control" id="inp-customer" type="text" />
+            </div>
+            <div class="col-md-6">
+              <label class="form-label" for="inp-code"
+                >Código de bicicleta</label
+              >
+              <input
+                class="form-control"
+                id="inp-code"
+                type="text"
+                placeholder="B-123"
+              />
+            </div>
+            <div class="col-md-6">
+              <label class="form-label" for="sel-type">Tipo</label>
+              <select class="form-select" id="sel-type">
+                <option value="urban">Urbana</option>
+                <option value="mountain">Montaña</option>
+                <option value="electric">Eléctrica</option>
+              </select>
+            </div>
+            <div class="col-md-6">
+              <label class="form-label" for="inp-hours">Horas</label>
+              <button
+                class="hint"
+                type="button"
+                data-bs-toggle="tooltip"
+                title="Número entero entre 1 y 24."
+              >
+                ?
+              </button>
+              <input
+                class="form-control"
+                id="inp-hours"
+                type="number"
+                min="1"
+                max="24"
+              />
+            </div>
+            <div class="col-md-6">
+              <label class="form-label" for="inp-price">Precio por hora</label>
+              <input
+                class="form-control"
+                id="inp-price"
+                type="number"
+                min="0"
+              />
+            </div>
+          </div>
+          <button class="btn btn-primary mt-4" id="btn-add" type="button">
+            Agregar
+          </button>
+          <div class="mt-3 d-none" id="error-container">
+            <p class="text-danger" id="error-msg"></p>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+      document
+        .querySelectorAll('[data-bs-toggle="tooltip"]')
+        .forEach((element) => new bootstrap.Tooltip(element));
+    </script>
+    <script src="src/interface/main.ts" type="module"></script>
+  </body>
+</html>
