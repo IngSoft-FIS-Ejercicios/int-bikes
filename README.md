@@ -32,3 +32,13 @@ Subir un issue 'Parte A' con screenshot de la terminal con el resumen de tests y
 6. Completar el `// TODO` de `createDeleteButton` en `main.ts` para que el botón "Eliminar" de cada card elimine el alquiler y actualice los paneles "Alquileres" y "Por tipo" y los totales.
 
 Subir un issue 'Parte B' con screenshot de la página (paneles Inicio y Alquileres).
+
+### Referencias y recursos útiles
+
+- [ESLint](https://eslint.org/docs/latest/rules/)
+- [Prettier](https://prettier.io/docs/)
+- [TypeScript](https://www.typescriptlang.org/docs/)
+- [Vitest](https://vitest.dev/guide/)
+- [Bootstrap](https://getbootstrap.com/docs/4.1/getting-started/introduction/)
+- [HTML](https://www.w3schools.com/html/)
+
